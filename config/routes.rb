@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'customers/show'
+    get 'customers/quit'
+    get 'customers/edit'
+  end
   get 'homes/top'
   get 'homes/about'
 # 顧客用
