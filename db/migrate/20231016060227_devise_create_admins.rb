@@ -4,6 +4,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration[6.1]
   def change
     create_table :admins do |t|
       ## Database authenticatable
+      # 一時的に追加
       t.string :last_name
       t.string :first_name
       t.string :last_name_kana
@@ -12,6 +13,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration[6.1]
       t.string :post_code
       t.string :address
       t.boolean :is_member, default: false
+      # ↑ここまで
       
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
