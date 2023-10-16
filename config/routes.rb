@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'items/index'
+    get 'items/new'
+    get 'items/show'
+    get 'items/edit'
+  end
+  namespace :admin do
+    get 'homes/top'
+  end
   namespace :public do
     get 'orders/new'
     get 'orders/thanks'
