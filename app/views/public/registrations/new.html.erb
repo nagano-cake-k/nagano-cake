@@ -37,20 +37,20 @@
   </div>
   
   
-  <div class="郵便番号">
-    <%= f.label :post_code %><br />
-    <%= f.text_field :email, autofocus: true, autocomplete: "post_code" %>
+  <div class="field">
+    <%= f.label :郵便番号 %><br />
+    <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code" %>
   </div>
   
-  <div class="住所">
-    <%= f.label :address %><br />
-    <%= f.text_field :email, autofocus: true, autocomplete: "address" %>
+  <div class="field">
+    <%= f.label :住所 %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
   </div>
 
-  <div class="電話番号">
-    <%= f.label :telephone_number %><br />
-    <%= f.telephone_field :email, autofocus: true, autocomplete: "email" %>
-  </div>telephone_number
+  <div class="field">
+    <%= f.label :電話番号 %><br />
+    <%= f.telephone_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
+  </div>
 
   
  
