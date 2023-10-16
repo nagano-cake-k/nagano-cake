@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
   namespace :admin do
+
     get 'customers/index'
     get 'customers/show'
     get 'customers/edit'
+
+    get 'orders/index'
+    get 'orders/show'
+  end
+  namespace :public do
+    get 'addresses/inidex'
+    get 'addresses/edit'
+  end
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
   end
   namespace :public do
     get 'orders/new'
