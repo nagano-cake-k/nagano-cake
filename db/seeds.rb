@@ -19,7 +19,7 @@ Admin.create!(
   telephone_number: "123456789",
   post_code: "1234567",
   address: "栃木県栃木市",
-  is_member: true
+  is_member: true　#初期値「false」が入会状態だけど問題無し？
 )
 
 # その他顧客ユーザー
