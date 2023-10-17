@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root :to => "homes#top"
   get 'home/about' => 'homes#about', as: 'about'
 
+
   namespace :admin do
     resources :items
     resources :customers
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
   end
   namespace :public do
     root :to => "homes#top"
-    
+
     resources :addresses
     resources :items
     resources :orders
