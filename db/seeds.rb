@@ -132,9 +132,10 @@ items_array = [
    'グミ'
     ]
  ]
-  
+
+count = 1
 items_array.each_with_index do |items, i|
-  items.each_with_index do |item|
+  items.each_with_index do |item, j|
     item = Item.create!(
       name: item,
       explanation: "#{item}の説明。",
@@ -143,7 +144,9 @@ items_array.each_with_index do |items, i|
       cost: 400,
       is_sales: true
     )
-    
+  # puts count
     # 画像
+     item.image.attach(io: File.open(Rails.root.join("app/assets/images/cake.image/cake#{count}.jpg")),filename: "item-#{i+1}-#{j+1}.jpg")
+     count += 1
   end
 end
