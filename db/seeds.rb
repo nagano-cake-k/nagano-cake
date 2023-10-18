@@ -50,14 +50,14 @@ Admin.create!(
   is_member: true
 )
 
-.create!(
+Admin.create!(
   first_name: "阿部",
   last_name: "英行",
   first_name_kana: 'アベ',
   last_name_kana: 'ヒデユキ',
   email: "abe@abe",
   password: "123456789",
- Admin password_confirmation: "123456789",
+  password_confirmation: "123456789",
   telephone_number: "123456789",
   post_code: "1234567",
   address: "東京",
