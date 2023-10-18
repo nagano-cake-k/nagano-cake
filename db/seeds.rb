@@ -22,6 +22,49 @@ Admin.create!(
   is_member: true
 )
 
+Admin.create!(
+  first_name: "杉澤",
+  last_name: "勇弥",
+  first_name_kana: 'スギサワ',
+  last_name_kana: 'ユウヤ',
+  email: "sugisawa@sugisawa",
+  password: "123456789",
+  password_confirmation: "123456789",
+  telephone_number: "123456789",
+  post_code: "1234567",
+  address: "東京",
+  is_member: true
+)
+
+Admin.create!(
+  first_name: "山下",
+  last_name: "哲平",
+  first_name_kana: 'ヤマシタ',
+  last_name_kana: 'テッペイ',
+  email: "yamashita@yamashita",
+  password: "123456789",
+  password_confirmation: "123456789",
+  telephone_number: "123456789",
+  post_code: "1234567",
+  address: "東京",
+  is_member: true
+)
+
+.create!(
+  first_name: "阿部",
+  last_name: "英行",
+  first_name_kana: 'アベ',
+  last_name_kana: 'ヒデユキ',
+  email: "abe@abe",
+  password: "123456789",
+ Admin password_confirmation: "123456789",
+  telephone_number: "123456789",
+  post_code: "1234567",
+  address: "東京",
+  is_member: true
+)
+
+
 # その他顧客ユーザー
 20.times do |num|
   Customer.create!(
@@ -35,7 +78,6 @@ Admin.create!(
     telephone_number: "password#{num + 1}",
     post_code: "1234567",
     address: "栃木県"
-    # is_member: false
   )
 end
 
