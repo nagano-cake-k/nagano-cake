@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     resources :orders
     resources :cart_items
     resources :customers
+    resources :customer
 
     # get 'addresses/inidex'
     # get 'addresses/edit'
