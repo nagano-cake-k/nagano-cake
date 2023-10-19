@@ -81,34 +81,72 @@ Admin.create!(
   )
 end
 
+genres = [
+  "ケーキ",
+  "プリン",
+  "焼き菓子",
+  "キャンディー"
+  ]
 
-# 山下
-# User.create!(
-#   name: "Fujii",
-#   email: "fujii@fujii",
-#   password: "11111111",
-#   password_confirmation: "11111111",
-#   telephone_number: "111111111",
-#   admin_flag: true
-# )
-
-# # 池上さん
-# User.create!(
-#   name: "Ikegami",
-#   email: "ikegami@ikegami",
-#   password: "000000000",
-#   password_confirmation: "000000000",
-#   telephone_number: "000000000",
-#   admin_flag: true
-# )
-
-# # しょーさん（顧客ユーザー）
-# User.create!(
-#   name: "しょーさん",
-#   email: "sho@sho",
-#   password: "22222222",
-#   password_confirmation: "22222222",
-#   telephone_number: "222222222"
-# )
+genres.each do |genre|
+  Genre.create!(
+    name: genre
+  )
+end
 
 
+items_array = [
+  # ケーキ
+  ['ショートケーキ',
+  'チョコレートケーキ',
+  'レアチーズケーキ',
+  'ベイクドチーズケーキ',
+  'モンブラン',
+  'ブッシュドノエル',
+  '生チョコタルト',
+  'チーズタルト',
+  'タルトタタン',
+  'ミルクレープ'
+  ],
+  # プリン
+  [
+    'カスタードプリン',
+    'ミルクプリン',
+    '抹茶プリン'
+  ],
+    
+  # 焼き菓子
+  [
+  'マドレーヌ',
+  'フィナンシェ',
+  'マカロン',
+  'バウムクーヘン',
+  'ラスク',
+  'リーフパイ'    
+  ],
+  # キャンディ
+  [
+   '棒付キャンディ',
+   'ドロップ',
+   '金平糖',
+   'グミ'
+    ]
+ ]
+
+count = 1
+items_array.each_with_index do |items, i|
+  items.each_with_index do |item, j|
+    item = Item.create!(
+      name: item,
+      explanation: "#{item}の説明。",
+      genre_id: i+1,
+      # stock: 20,
+      cost: 400,
+      is_sales: true
+    )
+  # puts count
+    # 画像
+     item.image.attach(io: File.open(Rails.root.join("app/assets/images/cake.image/cake#{count}.jpg")),filename: "item-#{i+1}-#{j+1}.jpg")
+     count += 1
+  end
+end
