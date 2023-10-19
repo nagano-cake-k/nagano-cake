@@ -8,8 +8,14 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @genres = Genre.all
-    @genre = Genre.new
+    # @genres = Genre.all
+    # @genre = Genre.new
+    # jenre_selection = @genre.(name)
+    
+    # @select_genre_array = []
+    # select_genre_array.each_with_index do |genre_name, i|
+      
+    # end
   end
 
   def show
@@ -21,10 +27,10 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_item_path(@item.id)
       flash[:notice] = 'The product has been registered'
-    else
-      @genres = Genre.all
-      flash.now[:alert] = 'Could not register product'
-      render :new
+    # else
+    #   @genres = Genre.all
+    #   flash.now[:alert] = 'Could not register product'
+    #   render :new
     end
   end
 
@@ -47,7 +53,7 @@ class Admin::ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:name, :explanation, :cost, :is_menber, :genre_id)
+    params.require(:item).permit(:name, :explanation, :cost, :image, :is_sales, :genre_id)
   end
   
   
