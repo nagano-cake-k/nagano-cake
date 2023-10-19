@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   root :to => "homes#top"
   get 'home/about' => 'homes#about', as: 'about'
 
+  # 論理削除用のルーティング
+  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+
 
   namespace :admin do
     resources :items
@@ -46,6 +49,7 @@ Rails.application.routes.draw do
     resources :orders
     resources :cart_items
     resources :customers
+    get "customers/quit", as: "quit"
     resources :customer
 
     # get 'addresses/inidex'
