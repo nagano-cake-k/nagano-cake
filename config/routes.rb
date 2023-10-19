@@ -43,10 +43,10 @@ Rails.application.routes.draw do
   end
   namespace :public do
     root :to => "homes#top"
-
     resources :addresses
     resources :items
     resources :orders
+    post 'orders/confirm' => 'orders#confirm'
     resources :cart_items
     resources :customers
     get "customers/quit", as: "quit"
