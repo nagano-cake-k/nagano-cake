@@ -21,7 +21,7 @@
               <%= item.name %>
             <% end %>
           </td>
-          <td>¥<%= item.cost %></td>
+          <td>¥<%= item.add_tax_cost %></td>
           <td><%= item.genre.name %></td>
           <td>
             <% if item.is_sales == true %>
