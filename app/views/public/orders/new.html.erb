@@ -37,7 +37,7 @@
         <div class="ml-5 ">
           <%#= f.select :address_id, options_from_collection_for_select(Address.where(customer_id: current_customer.id), :id, :address) %>
           <%#= f.select :registered_address_id, current_customer.address.all.map { |m| [[m.post_code, m.address, m.name].join(" "), m.id] } ,include_blank: "登録してある配送先住所から選択" %>
-          <%= f.collection_select(:registration_address, current_customer.address, :id, :postcode_and_address_and_name,{}, {class: "form-control"}) %>
+          <%#= f.collection_select(:registration_address, current_customer.address, :id, :postcode_and_address_and_name,{}, {class: "form-control"}) %>
         </div>
       <% end %>
     </div>
