@@ -51,7 +51,15 @@ Rails.application.routes.draw do
     resources :orders
     resources :cart_items
     get "customers/quit", as: "quit"
-    resources :customers
+
+    resources :customers, except: [:show] do
+      collection do
+        get "customers/quit", as: "quit"
+        get "customers/mypege" => 'customers#show'
+      end
+    end
+  end
+  
     resources :customer
     # get 'addresses/inidex'
     # get 'addresses/edit'

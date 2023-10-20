@@ -2,58 +2,59 @@
 <h3>会員情報編集</h2>
 </div>
 
-<%= form_with model:@customer do |f| %>
+<%= form_with model: @customer, url: public_customer_path do |f| %>
   <div>
     <table>
-      
+
       <tr class="form-group">
         <td><label for="customer_name">氏名</label></td>
         <td><%= f.text_field :last_name, id: "customer_name", value: @customer.last_name, class: "form-control last_name" %></td>
         <td><%= f.text_field :first_name, id: "customer_name", value: @customer.first_name, class: "form-control first_name" %></td>
         <td></td>
       </tr>
-      
+
       <tr>
         <td><label for="customer_name_kana">フリガナ</label></td>
         <td><%= f.text_field :last_name_kana, id: "customer_name_kana", value: @customer.last_name_kana, class: "form-control last_name_kana" %></td>
         <td><%= f.text_field :first_name_kana, id: "customer_name_kana", value: @customer.first_name_kana, class: "form-control first_name_kana" %></td>
         <td></td>
       </tr>
-      
+
       <tr>
         <td><label for="customer_post_code">郵便番号</label></td>
         <td><%= f.text_field :post_code, id: "customer_post_code", value: @customer.post_code, class: "form-control post_code" %></td>
         <td></td>
         <td></td>
       </tr>
-  
+
       <tr>
         <td><label for="customer_address">住所</label></td>
         <td colspan="2"><%= f.text_field :address, id: "customer_address", value: @customer.address, class: "form-control address" %></td>
         <td></td>
       </tr>
-  
+
       <tr>
         <td><label for="customer_telephone_number">電話番号</label></td>
         <td><%= f.text_field :telephone_number, id: "customer_telephone_number", value: @customer.telephone_number, class: "form-control telephone_number" %></td>
         <td></td>
         <td></td>
       </tr>
-  
+
       <tr>
         <td><label for="customer_email">メールアドレス</label></td>
         <td><%= f.text_field :email, id: "customer_email", value: @customer.address, class: "form-control email" %></td>
         <td></td>
         <td></td>
       </tr>
-      
+
     </table>
   </div>
-  
+
   <div>
-    <%= f.submit "Update Customer", class: "btn btn-success" %>
+    <%= f.submit "編集内容を保存", class: "btn btn-success" %>
   </div>
-  
+
   <div>
-    <%= link_to "退会する", withdrawal_path, method: :patch, data: { confirm: "本当に退会しますか？" }, calss: "btn btn-denger" %>
+    <%= link_to "退会する", public_quit_path, method: :get, class: "btn btn-danger" %>
   </div>
+<% end %>
