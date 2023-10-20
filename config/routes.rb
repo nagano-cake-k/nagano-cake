@@ -48,8 +48,14 @@ Rails.application.routes.draw do
     resources :orders
     post 'orders/confirm' => 'orders#confirm'
     resources :cart_items
-    resources :customers
     get "customers/quit", as: "quit"
+    resources :customers, except: [:show] do
+      collection do
+        get "customers/quit", as: "quit"
+        get "customers/mypege" => 'customers#show'
+      end
+    end
+  end
     resources :customer
 
     # get 'addresses/inidex'
