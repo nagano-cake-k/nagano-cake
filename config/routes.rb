@@ -41,14 +41,17 @@ Rails.application.routes.draw do
     # get 'orders/index'
     # get 'orders/show'
   end
+
   namespace :public do
     root :to => "homes#top"
     resources :addresses
     resources :items
-    resources :orders
+    get 'orders/thanks' => 'orders#thanks'
     post 'orders/confirm' => 'orders#confirm'
+    resources :orders
     resources :cart_items
     get "customers/quit", as: "quit"
+
     resources :customers, except: [:show] do
       collection do
         get "customers/quit", as: "quit"
@@ -56,11 +59,11 @@ Rails.application.routes.draw do
       end
     end
   end
+  
     resources :customer
-
     # get 'addresses/inidex'
     # get 'addresses/edit'
-  end
+   end
 
   # namespace :public do
   #   get 'items/index'
