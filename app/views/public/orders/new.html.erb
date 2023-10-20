@@ -7,11 +7,11 @@
   <div class="payment_select">
     <h4>支払い方法</h4>
     <p class="radio_bottun mb-0">
-      <%= f.radio_button :payment_method, :card, checked: true %>
+      <%= f.radio_button :payment_method, 0, checked: true %>
       <%= f.label :payment_method, "クレジットカード" %>
     </p>
     <p class="radio_bottun mb-0">
-      <%= f.radio_button :payment_method, :bank %>
+      <%= f.radio_button :payment_method, 1 %>
       <%= f.label :payment_method, "銀行振込" %>
     </p>
   </div>
@@ -30,16 +30,13 @@
       </P>
     </div>
     <div class="registered_address">
-      <% if current_customer.address.empty? %>
-      <% else %>
-        <%= f.radio_button :address_type, [:registered_address] %>
-        <%= f.label :address_type, "登録済み住所から選択" %>
-        <div class="ml-5 ">
-          <%#= f.select :address_id, options_from_collection_for_select(Address.where(customer_id: current_customer.id), :id, :address) %>
-          <%#= f.select :registered_address_id, current_customer.address.all.map { |m| [[m.post_code, m.address, m.name].join(" "), m.id] } ,include_blank: "登録してある配送先住所から選択" %>
-          <%#= f.collection_select(:registration_address, current_customer.address, :id, :postcode_and_address_and_name,{}, {class: "form-control"}) %>
-        </div>
-      <% end %>
+      <%= f.radio_button :address_type, [:registered_address] %>
+      <%= f.label :address_type, "登録済み住所から選択" %>
+
+        <%#= f.select :address_id, options_from_collection_for_select(Address.where(customer_id: current_customer.id), :id, :address) %>
+        <%#= f.select :registered_address_id, current_customer.address.all.map { |m| [[m.post_code, m.address, m.name].join(" "), m.id] } ,include_blank: "登録してある配送先住所から選択" %>
+        <%#= f.collection_select(:registration_address, current_customer.address, :id, :postcode_and_address_and_name,{}, {class: "form-control"}) %>
+
     </div>
 
   </div>
