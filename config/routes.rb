@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     resources :orders
     resources :cart_items
     get "customers/quit", as: "quit"
+
     resources :customers, except: [:show] do
       collection do
         get "customers/quit", as: "quit"
