@@ -59,7 +59,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  
     resources :customer
     # get 'addresses/inidex'
     # get 'addresses/edit'
