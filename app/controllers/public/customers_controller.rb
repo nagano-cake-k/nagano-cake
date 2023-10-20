@@ -20,7 +20,7 @@ class Public::CustomersController < ApplicationController
       @customer = current_customer
       if @customer.update(customer_params)
       flash[:update] = "You have updated user info successfully."
-      redirect_to customer_path(@customer.id)
+      redirect_to mypage_public_customers_path
       else
       render 'edit'
       end
