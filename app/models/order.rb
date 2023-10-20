@@ -1,5 +1,10 @@
 class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
-  # has_many :items, through: :order_details (← orderでitemの情報を使いたいとき)
   belongs_to :customer
+
+  enum payment_method: {
+    credit_card: 0,
+    trans: 1
+  }
+
 end
