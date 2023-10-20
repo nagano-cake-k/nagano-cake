@@ -58,12 +58,11 @@ Rails.application.routes.draw do
         get "customers/mypege" => 'customers#show'
       end
     end
-  end
   
     resources :customer
     # get 'addresses/inidex'
     # get 'addresses/edit'
-   end
+  end
 
   # namespace :public do
   #   get 'items/index'
