@@ -20,9 +20,6 @@ Rails.application.routes.draw do
   root :to => "homes#top"
   get 'home/about' => 'homes#about', as: 'about'
 
-  # 論理削除用のルーティング
-  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-
 
   namespace :admin do
     resources :items
@@ -50,15 +47,17 @@ Rails.application.routes.draw do
     post 'orders/confirm' => 'orders#confirm'
     resources :orders
     resources :cart_items
-    get "customers/quit", as: "quit"
 
     resources :customers, except: [:show] do
-      collection do
-        get "customers/quit", as: "quit"
-        get "customers/mypege" => 'customers#show'
+      collection do                                           # resourcesで定義されるアクション以外を追加する(URIにidを挟まない場合はcollection)
+        get "quit"                                            # quitのルーティング
+        get "mypage" => 'customers#show'                      # mypageのルーティング
+      end
+      member do                                               # resourcesで定義されるアクション以外を追加する(URIにidを挟む場合はmember)
+        patch "withdraw" => "customers#withdraw"          # 論理削除用のルーティング
       end
     end
-  
+
     resources :customer
     # get 'addresses/inidex'
     # get 'addresses/edit'

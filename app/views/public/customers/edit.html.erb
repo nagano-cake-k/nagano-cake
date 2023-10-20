@@ -42,7 +42,7 @@
 
       <tr>
         <td><label for="customer_email">メールアドレス</label></td>
-        <td><%= f.text_field :email, id: "customer_email", value: @customer.address, class: "form-control email" %></td>
+        <td><%= f.text_field :email, id: "customer_email", value: @customer.email, class: "form-control email" %></td>
         <td></td>
         <td></td>
       </tr>
@@ -55,6 +55,6 @@
   </div>
 
   <div>
-    <%= link_to "退会する", public_quit_path, method: :get, class: "btn btn-danger" %>
+    <%= link_to "退会する",  quit_public_customers_path, method: :get, class: "btn btn-danger" %>
   </div>
 <% end %>
