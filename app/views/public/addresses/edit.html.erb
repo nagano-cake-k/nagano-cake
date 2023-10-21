@@ -2,7 +2,7 @@
 
 <%= render 'error', address: @address %>
 
-<%= form_with model: @address, url: public_address_path, method: :patch do |f| %>
+<%= form_with model: @address, url: address_path, method: :patch do |f| %>
 
 <table>
     <tr>
@@ -17,4 +17,4 @@
 </table>
 <% end %>
 
-<%= link_to "戻る", public_addresses_path %>
+<%= link_to "戻る", addresses_path %>
