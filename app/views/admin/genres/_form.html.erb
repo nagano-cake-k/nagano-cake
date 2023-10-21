@@ -1,0 +1,6 @@
+<%= form_with model: @genre do |f| %>
+
+<%= f.label :name, "ジャンル名" %>
+<%= f.text_field :name, placeholder: "ジャンル名" %>
+
+<%= f.submit '新規登録' %>
