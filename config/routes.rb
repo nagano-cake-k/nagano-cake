@@ -30,13 +30,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root :to => "homes#top"
 
-
-    # get 'customers/index'
-    # get 'customers/show'
-    # get 'customers/edit'
-
-    # get 'orders/index'
-    # get 'orders/show'
   end
 
   namespace :public do
@@ -47,6 +40,12 @@ Rails.application.routes.draw do
     post 'orders/confirm' => 'orders#confirm'
     resources :orders
     resources :cart_items
+
+    resources :customers
+    get "customers/quit", as: "quit"
+    resources :customer
+    delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
+
 
     resources :customers, except: [:show] do
       collection do                                           # resourcesで定義されるアクション以外を追加する(URIにidを挟まない場合はcollection)
@@ -59,6 +58,7 @@ Rails.application.routes.draw do
     end
 
     resources :customer
+
     # get 'addresses/inidex'
     # get 'addresses/edit'
   end
