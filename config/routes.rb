@@ -33,13 +33,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root :to => "homes#top"
 
-
-    # get 'customers/index'
-    # get 'customers/show'
-    # get 'customers/edit'
-
-    # get 'orders/index'
-    # get 'orders/show'
   end
   namespace :public do
     root :to => "homes#top"
@@ -51,7 +44,7 @@ Rails.application.routes.draw do
     resources :customers
     get "customers/quit", as: "quit"
     resources :customer
-
+    delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
     # get 'addresses/inidex'
     # get 'addresses/edit'
   end
