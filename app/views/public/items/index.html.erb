@@ -11,11 +11,11 @@
       <div class="col-3">
          <div class="mb-0">
           <%= image_tag item.image, size: "200x150" %>
-          <%=link_to public_item_path(item.id) do %>
+          <%=link_to item_path(item.id) do %>
             <p class="mb-0 font-weight-bold"><%= item.name %></p>  
           <% end %>
          </div>
-         <P class="font-weight-bold">￥<%= item.add_tax_cost %></P>
+         <P class="font-weight-bold">￥<%= item.cost %></P>
       </div>
       <% end %>
     </div>
