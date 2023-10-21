@@ -32,8 +32,7 @@ Rails.application.routes.draw do
 
   end
 
-  namespace :public do
-    root :to => "homes#top"
+  scope module: :public do
     resources :addresses
     resources :items
     get 'orders/thanks' => 'orders#thanks'
