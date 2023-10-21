@@ -1,7 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
-    # @shipping_addresses = current_customer.shipping_addresses
   end
 
   def thanks
@@ -11,6 +10,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+     @cart_items = CartItem.all
   end
-  
+
 end
