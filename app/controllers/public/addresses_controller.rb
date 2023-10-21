@@ -2,6 +2,7 @@ class Public::AddressesController < ApplicationController
   def index
     @addresses = Address.all
     @address = Address.new
+    @customer = current_customer.id
   end
 
   def create
@@ -10,6 +11,8 @@ class Public::AddressesController < ApplicationController
     if @address.save
       redirect_to request.referer
     else
+      @addresses = Address.all
+      @adderess = Address.new(address_params)
       render :index
     end
   end
@@ -26,8 +29,11 @@ class Public::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(address_params)
-    redirect_to public_addresses_path
+    if  @address.update(address_params)
+      redirect_to public_addresses_path
+    else
+      render :edit
+    end
   end
 
   private
