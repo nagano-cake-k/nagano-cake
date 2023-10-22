@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
 }
 
-
   namespace :admin do
     resources :items
     resources :customers
@@ -56,7 +55,6 @@ Rails.application.routes.draw do
         patch "withdraw" => "customers#withdraw"              # 論理削除用のルーティング
       end
     end
-
   
   end
 
