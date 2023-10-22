@@ -23,9 +23,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items
     resources :customers
-    resources :orders
+    resources :orders, except: [:index] #今回の使用はトップページを注文一覧とするためindexを除外
     resources :genres
-    root :to => "admin/homes#top"
+    root :to => "homes#top"
   end
 
   scope module: :public do
@@ -41,11 +41,7 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :orders
     resources :cart_items
-    resources :customers
-    get "customers/quit", as: "quit"
     resources :customer
-
-
     resources :customers, except: [:show] do
       collection do                                           # resourcesで定義されるアクション以外を追加する(URIにidを挟まない場合はcollection)
         get "quit"                                            # quitのルーティング
@@ -56,8 +52,9 @@ Rails.application.routes.draw do
       end
     end
 
-end
-    resources :customer
+
+  end
+
 
     # get 'addresses/inidex'
     # get 'addresses/edit'
