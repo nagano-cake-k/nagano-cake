@@ -4,7 +4,13 @@ class Order < ApplicationRecord
 
   enum payment_method: {
     credit_card: 0,
-    trans: 1
+    transfer: 1
+  }
+
+  enum address_type: {
+    self_address: 0,
+    registered_address: 1,
+    new_address: 2
   }
 
 end

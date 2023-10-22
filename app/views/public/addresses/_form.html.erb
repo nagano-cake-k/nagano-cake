@@ -1,4 +1,4 @@
-<%= form_with model: address, url: '/public/addresses', method: :post do |f| %>
+<%= form_with model: address, url: addresses_path, method: :post do |f| %>
 
 <table>
     <tr>
@@ -8,7 +8,7 @@
         <td><%= f.label :address, "住所" %></td><td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0"%></td><td><br /></td>
     </tr>
     <tr>
-        <td> <%= f.label :name, "宛名" %></td><td><%= f.text_field :name, placeholder: "令和道子" %></td><td><%= f.submit '投稿' %></td>
+        <td> <%= f.label :name, "宛名" %></td><td><%= f.text_field :name, placeholder: "令和道子" %></td><td><%= f.submit '新規登録' %></td>
     </tr>
 </table>
 <% end %>
