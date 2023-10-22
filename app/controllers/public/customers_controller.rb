@@ -14,16 +14,12 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(customer_params)
     redirect_to customer_path
-  end
-
-  def update
-      @customer = current_customer
-      if @customer.update(customer_params)
-      flash[:update] = "You have updated user info successfully."
-      redirect_to mypage_public_customers_path
-      else
-      render 'edit'
-      end
+    # if @customer.update(customer_params)
+    #   flash[:update] = "You have updated user info successfully."
+    #   redirect_to mypage_public_customers_path
+    # else
+    #   render 'edit'
+    # end
   end
 
   def quit #退会確認画面
