@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'public/top'
+  get 'public/about'
   namespace :admin do
     get 'genres/index'
     get 'genres/edit'
@@ -17,11 +19,7 @@ Rails.application.routes.draw do
  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  # root :to => "admin/homes#top"
-  # get 'admin' => 'admin/homes#top'
-  
-  
-  # get 'admin' => 'admin/homes#top'
+
 
   namespace :admin do
     resources :items
@@ -32,11 +30,11 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    
+
     root :to => "homes#top"
     get 'home/about' => 'homes#about', as: 'about'
-    
-    
+
+
     resources :addresses
     resources :items
     get 'orders/thanks' => 'orders#thanks'
@@ -58,13 +56,15 @@ Rails.application.routes.draw do
         patch "withdraw" => "customers#withdraw"              # 論理削除用のルーティング
       end
     end
+
   
   end
+
     resources :customer
 
     # get 'addresses/inidex'
     # get 'addresses/edit'
-  
+
 
   # namespace :public do
   #   get 'items/index'
