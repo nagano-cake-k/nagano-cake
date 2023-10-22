@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'public/top'
+  get 'public/about'
   namespace :admin do
     get 'genres/index'
     get 'genres/edit'
@@ -17,11 +19,6 @@ Rails.application.routes.draw do
  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  # root :to => "admin/homes#top"
-  get 'admin' => 'admin/homes#top'
-
-
-   get 'admin' => 'admin/homes#top'
 
   namespace :admin do
     resources :items
@@ -55,11 +52,12 @@ Rails.application.routes.draw do
         get "mypage" => 'customers#show'                      # mypageのルーティング
       end
       member do                                               # resourcesで定義されるアクション以外を追加する(URIにidを挟む場合はmember)
-        patch "withdraw" => "customers#withdraw"          # 論理削除用のルーティング
+        patch "withdraw" => "customers#withdraw"              # 論理削除用のルーティング
       end
     end
+  
+  end
 
-end
     resources :customer
 
     # get 'addresses/inidex'
