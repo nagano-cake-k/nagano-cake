@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
 }
   # root :to => "admin/homes#top"
-  get 'admin' => 'admin/homes#top'
+  # get 'admin' => 'admin/homes#top'
   
   
-   get 'admin' => 'admin/homes#top'
+  # get 'admin' => 'admin/homes#top'
 
   namespace :admin do
     resources :items
@@ -59,7 +59,7 @@ Rails.application.routes.draw do
       end
     end
   
-end
+  end
     resources :customer
 
     # get 'addresses/inidex'
