@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
 }
 
-
   namespace :admin do
     resources :items
     resources :customers
@@ -53,13 +52,11 @@ Rails.application.routes.draw do
         get "mypage" => 'customers#show'                      # mypageのルーティング
       end
       member do                                               # resourcesで定義されるアクション以外を追加する(URIにidを挟む場合はmember)
-        patch "withdraw" => "customers#withdraw"              # 論理削除用のルーティング
+        patch "withdraw" => "customers#withdraw"          # 論理削除用のルーティング
       end
     end
 
-  
-  end
-
+end
     resources :customer
 
     # get 'addresses/inidex'
