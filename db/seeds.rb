@@ -150,14 +150,14 @@ items_array.each_with_index do |items, i|
      count += 1
   end
   
-  #   9.times do |n|
-  #   Address.create!(
-  #     name: "test#{n + 1}",
-  #     post_code: "1234567",
-  #     address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
-  #     customer_id: n + 1
-  #   )
-  # end
+    9.times do |n|
+    Address.create!(
+      name: "test#{n + 1}",
+      post_code: "1234567",
+      address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
+      customer_id: n + 1
+    )
+  end
   
   # 10.times do |n|
   #   Order.create!(
