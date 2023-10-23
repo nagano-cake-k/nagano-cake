@@ -37,8 +37,8 @@
       <div class="col-3">
         <table>
           <tr><th>送料</th><td><%= @postage %></td></tr>
-          <tr><th>商品合計</th><td><%= @sub_total %></td></tr>
-          <tr><th>請求金額</th><td><%= @total %></td></tr>
+          <tr><th>商品合計</th><td><%= @sub_total.to_s(:delimited) %></td></tr>
+          <tr><th>請求金額</th><td><%= @total.to_s(:delimited) %></td></tr>
         </table>
       </div>
 
