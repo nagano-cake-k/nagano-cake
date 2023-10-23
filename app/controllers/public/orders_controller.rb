@@ -15,8 +15,7 @@ class Public::OrdersController < ApplicationController
     @postage = 800
     @total = @sub_total + @postage
 
-
-    @order = Order.new
+    @order = Order.new(order_params)
     @order.payment_method = params[:order][:payment_method]
 
     @address_type = params[:order][:address_type]
@@ -28,11 +27,14 @@ class Public::OrdersController < ApplicationController
         @order.last_name = current_cusomer.last_name
         @order.first_name = current_cusomer.last_name
       when "登録済み住所から選択"
-        selected = Address.find(params[:order][:registered_address_id])
-        @selected_address = selected.post_code + " " + selected.address + " " + selected.name
+        @selected = Address.find(params[:order][:address_id])
+        @selected_address = @selected.post_code + " " + @selected.address + " " + @selected.name
+        @order.post_code = @selected.post_code
+        @order.address = @selected.address
+        @order.name = @selected.name
+
       when "新しいお届け先"
         @selected_address = params[:order][:post_code] + "" + params[:order][:address] + "" + params[:order][:name]
-        @order.post_code = Customer.find(params[:order][:post_code])
     end
   end
 

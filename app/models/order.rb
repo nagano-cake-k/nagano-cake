@@ -2,7 +2,8 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :customer
 
- 
+  
+
 
   enum address_type: {
     "ご自身の住所": 0,
