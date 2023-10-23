@@ -1,8 +1,6 @@
 <h4>ジャンル編集</h4>
 
-<%#= render 'error', genre: @genre %>
-
-<%= form_with model: @genre, url: address_path, method: :patch do |f| %>
+<%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
 
 <table>
     <tr>
