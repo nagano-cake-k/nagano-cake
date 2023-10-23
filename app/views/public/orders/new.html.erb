@@ -35,7 +35,7 @@
     <div class="registered_address">
       <%= f.radio_button :address_type, Order.address_types.key(1) %>
       <%= f.label :address_type, "登録済み住所から選択" %>
-      <p><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :address) %></p>
+      <p><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :post_code_in_address) %></p>
     </div>
 
     <div class="new_address">

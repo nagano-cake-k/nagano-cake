@@ -1,9 +1,10 @@
+<%= form_with model: genre, url: admin_genres_path, method: :post do |f| %>
+<table>
+    <tr>
+        <td><%= f.label :name, "ジャンル名" %></td>
+        <td><%= f.text_field :name, placeholder: "ジャンル名" %></td>
+        <td><%= f.submit '新規登録', class: "btn btn-primary" %></td>
+    </tr>
+</table>
 
-<% form_with model: genres, url: admin_genres_path, method: :post do |f| %>
-
-
-<%= f.label :name, "ジャンル名" %>
-<%= f.text_field :name, placeholder: "ジャンル名" %>
-
-<%= f.submit '新規登録' %>
 <% end %>

@@ -13,7 +13,7 @@ class Public::CustomersController < ApplicationController
   def update #顧客情報アプデ
     @customer = current_customer
     @customer.update(customer_params)
-    redirect_to customer_path
+    redirect_to mypage_customers_path
     # if @customer.update(customer_params)
     #   flash[:update] = "You have updated user info successfully."
     #   redirect_to mypage_public_customers_path

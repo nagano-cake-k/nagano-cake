@@ -1,38 +1,46 @@
 class Admin::GenresController < ApplicationController
-before_action :authenticate_customer!
+before_action :authenticate_admin!
 
   def index
-    @genres = current_customer.genres
-    @genre = genre.new
+    @genres = Genre.all
+    @genre = Genre.new
+  end
+
+  def new
+    @genre = Genre.new(genre_params)
   end
 
   def create
-    @genre = genre.new(genre_params)
-    @genre.customer_id = current_customer.id
+    @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to genres_path
+      flash.now[notice] = "新規登録しました"
+      redirect_to admin_genres_path
     else
-      @genres = current_customer.genres
+      flash.now[alert] = "新規登録に失敗しました"
+      @genres = Genre.all
       render :index
     end
   end
 
   def destroy
-    genre = genre.find(params[:id])
+    genre = Genre.find(params[:id])
     genre.destroy
-    redirect_to genres_path
+    redirect_to admin_genres_path
   end
 
   def edit
-    @genre = genre.find(params[:id])
+    @genre = Genre.find(params[:id])
   end
 
   def update
-    @genre = genre.find(params[:id])
+    @genre = Genre.find(params[:id])
     if  @genre.update(genre_params)
-      redirect_to genres_path
+      flash.now[notice] = "編集に成功しました"
+      redirect_to admin_genres_path
     else
-      render :edit
+      flash.now[alert] = "編集に失敗しました"
+      @genres = Genre.all
+      render :index
     end
   end
 
