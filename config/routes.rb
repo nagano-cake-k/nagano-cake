@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'public/top'
+  get 'public/about'
   namespace :admin do
     get 'genres/index'
     get 'genres/edit'
@@ -17,26 +19,21 @@ Rails.application.routes.draw do
  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  # root :to => "admin/homes#top"
-  get 'admin' => 'admin/homes#top'
-  
-  
-   get 'admin' => 'admin/homes#top'
 
   namespace :admin do
     resources :items
     resources :customers
-    resources :orders
+    resources :orders, except: [:index] #今回の使用はトップページを注文一覧とするためindexを除外
     resources :genres
-    root :to => "admin/homes#top"
+    root :to => "homes#top"
   end
 
   scope module: :public do
-    
+
     root :to => "homes#top"
     get 'home/about' => 'homes#about', as: 'about'
-    
-    
+
+
     resources :addresses
     resources :items
     get 'orders/thanks' => 'orders#thanks'
@@ -44,11 +41,7 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :orders
     resources :cart_items
-    resources :customers
-    get "customers/quit", as: "quit"
     resources :customer
-
-
     resources :customers, except: [:show] do
       collection do                                           # resourcesで定義されるアクション以外を追加する(URIにidを挟まない場合はcollection)
         get "quit"                                            # quitのルーティング
@@ -58,13 +51,14 @@ Rails.application.routes.draw do
         patch "withdraw" => "customers#withdraw"          # 論理削除用のルーティング
       end
     end
-  
-end
-    resources :customer
+
+
+  end
+
 
     # get 'addresses/inidex'
     # get 'addresses/edit'
-  
+
 
   # namespace :public do
   #   get 'items/index'
