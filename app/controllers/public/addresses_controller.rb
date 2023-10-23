@@ -10,9 +10,11 @@ before_action :authenticate_customer!
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
+      flash[notice] = "登録に成功しました"
       redirect_to addresses_path
     else
       @addresses = current_customer.addresses
+      flash.now[alert] =  "登録に失敗しました"
       render :index
     end
   end
@@ -30,8 +32,10 @@ before_action :authenticate_customer!
   def update
     @address = Address.find(params[:id])
     if  @address.update(address_params)
+      flash[notice] = "編集に成功しました"
       redirect_to addresses_path
     else
+      flash.now[alert] = "編集に失敗しました"
       render :edit
     end
   end
