@@ -58,10 +58,10 @@
         <td class="control-label">会員ステータス</td>
         <td>
           <div class="radio-inline">
+            <%= f.radio_button :is_member, false %>
+            <%= f.label :is_member, "入会", {value: :true, style: "display: inline-block"} %>
             <%= f.radio_button :is_member, true %>
             <%= f.label :is_member, "退会", {value: :true, style: "display: inline-block"} %>
-            <%> f.radio_button :is_member, flase %>
-            <%= f.label :is_member, "入会", {value: :true, style: "display: inline-block"} %>
           </div>
         </td>
         <td></td>
