@@ -149,17 +149,18 @@ items_array.each_with_index do |items, i|
      item.image.attach(io: File.open(Rails.root.join("app/assets/images/cake.image/cake#{count}.jpg")),filename: "item-#{i+1}-#{j+1}.jpg")
      count += 1
   end
+end
   
-    9.times do |n|
+    2.times do |n|
     Address.create!(
       name: "test#{n + 1}",
       post_code: "1234567",
       address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
-      customer_id: n + 1
+      customer_id: n+1
     )
   end
   
-  10.times do |n|
+  20.times do |n|
     Order.create!(
       customer_id: n +1,
       address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
@@ -168,18 +169,15 @@ items_array.each_with_index do |items, i|
       shipping_cost: "800",
       total_payment: "#{500 + (n * 500) +800}",
       payment_method: "クレジットカード",
-      status: "入金待ち"
+      status: rand(0..4)
     )
   end
   
-  10.times do |n|
+  20.times do |n|
     OrderDetail.create!(
       item_id: n + 1,
       order_id: n + 1,
       quantity: n + 3,
-      tax_price: "#{500 + (n * 500)}",
-      production_status: "入金待ち"
+      tax_price: "#{500 + (n * 500)}"
     )
   end
-  
-end
