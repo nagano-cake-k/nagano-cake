@@ -8,11 +8,11 @@
   <div class="payment_select">
     <h4>支払い方法</h4>
     <p class="radio_bottun mb-0">
-      <%= f.radio_button :payment_method, Order.payment_methods.key(0), checked: true %>
+      <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
       <%= f.label :payment_method, "クレジットカード" %>
     </p>
     <p class="radio_bottun mb-0">
-      <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+      <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
       <%= f.label :payment_method, "銀行振込" %>
     </p>
   </div>
