@@ -5,6 +5,13 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
+ 
+      status:
+        wait_payment: "入金待ち"
+        confirm_payment: "入金確認"
+        maiking: "製作中"
+        prepar_shipping: "発送準備中" 
+        finish_prepar: "発送済み"
 
     address_type:
         self_address: "ご自身の住所"
