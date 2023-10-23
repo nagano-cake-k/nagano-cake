@@ -2,7 +2,7 @@
 <h3><%= (@customer.last_name + @customer.first_name) %>さんの会員情報編集</h2>
 </div>
 
-<%= form_with model: @customer, url: customer_path do |f| %>
+<%= form_with model: @customer, url: admin_customer_path do |f| %>
   <div>
     <table>
 
@@ -58,12 +58,10 @@
         <td class="control-label">会員ステータス</td>
         <td>
           <div class="radio-inline">
-            <input type="radio" value="1" name="withdraw_status" id="active">
-              <label for="active">有効</label>
-          </div>
-          <div class="radio-inline">
-            <input type="radio" value="2" name="withdraw_status" id="withdraw">
-            <label for="withdraw">退会</label>
+            <%= f.radio_button :is_member, false %>
+            <%= f.label :is_member, "入会", {value: :true, style: "display: inline-block"} %>
+            <%= f.radio_button :is_member, true %>
+            <%= f.label :is_member, "退会", {value: :true, style: "display: inline-block"} %>
           </div>
         </td>
         <td></td>
@@ -75,6 +73,7 @@
 
   <div>
     <%= f.submit "変更を保存", class: "btn btn-success" %>
+    <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary" %>
   </div>
 
 <% end %>
