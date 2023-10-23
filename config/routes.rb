@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get 'genres/edit'
 # 顧客用
 # # URL /customers/sign_in ...
- devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
+ devise_for :customers,skip: [:registrations, :passwords], controllers: {
+  # registrations: "public/registrations",
   sessions: 'public/sessions'
 }
 
@@ -42,10 +42,11 @@ Rails.application.routes.draw do
     resources :orders
     resources :cart_items
     resources :customer
-    resources :customers, except: [:show] do
+    resources :customers, only: [:update] do
       collection do                                           # resourcesで定義されるアクション以外を追加する(URIにidを挟まない場合はcollection)
         get "quit"                                            # quitのルーティング
         get "mypage" => 'customers#show'                      # mypageのルーティング
+        get "edit" => "customers#edit"
       end
       member do                                               # resourcesで定義されるアクション以外を追加する(URIにidを挟む場合はmember)
         patch "withdraw" => "customers#withdraw"              # 論理削除用のルーティング
