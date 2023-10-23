@@ -8,7 +8,7 @@
   <div class="payment_select">
     <h4>支払い方法</h4>
     <p class="radio_bottun mb-0">
-      <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+      <%= f.radio_button :payment_method, Order.payment_methods.key(0), checked: true %>
       <%= f.label :payment_method, "クレジットカード" %>
     </p>
     <p class="radio_bottun mb-0">
@@ -21,7 +21,7 @@
     <h4>お届け先</h4>
     <div class="self_address">
       <p class="radio_bottun mb-0">
-        <%= f.radio_button :address_type, 0 %>
+        <%= f.radio_button :address_type, Order.address_types.key(0), checked: true %>
         <%= f.label :address_type, "ご自身の住所" %>
       </p>
       <p class="address_text mb-0">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="registered_address">
-      <%= f.radio_button :address_type, 1 %>
+      <%= f.radio_button :address_type, Order.address_types.key(1) %>
       <%= f.label :address_type, "登録済み住所から選択" %>
       <p><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :address) %></p>
     </div>
@@ -41,7 +41,7 @@
     <div class="new_address">
       <table>
       <tr>
-        <%= f.radio_button :address_type, 2 %>
+        <%= f.radio_button :address_type, Order.address_types.key(2) %>
         <%= f.label :address_type, "新しいお届け先" %></td>
       </tr>
       <tr>
