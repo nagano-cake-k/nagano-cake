@@ -16,7 +16,7 @@ class Public::OrdersController < ApplicationController
     @total = @sub_total + @postage
 
 
-    @order = Order.new
+    @order = Order.new(order_params)
     @order.payment_method = params[:order][:payment_method]
 
     @address_type = params[:order][:address_type]
@@ -32,7 +32,6 @@ class Public::OrdersController < ApplicationController
         @selected_address = selected.post_code + " " + selected.address + " " + selected.name
       when "新しいお届け先"
         @selected_address = params[:order][:post_code] + "" + params[:order][:address] + "" + params[:order][:name]
-        @order.post_code = Customer.find(params[:order][:post_code])
     end
   end
 
