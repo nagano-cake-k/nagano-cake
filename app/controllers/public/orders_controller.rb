@@ -11,7 +11,10 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_items = CartItem.where(customer_id: current_customer.id)
-    @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @sub_total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @postage = 800
+    @total = @sub_total + @postage
+
 
     @order = Order.new
     @order.payment_method = params[:order][:payment_method]
@@ -26,6 +29,7 @@ class Public::OrdersController < ApplicationController
       when "新しいお届け先"
         @selected_address = params[:order][:post_code] + "" + params[:order][:address] + "" + params[:order][:name]
     end
+
   end
 
 end
