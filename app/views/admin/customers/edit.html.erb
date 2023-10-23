@@ -58,8 +58,10 @@
         <td class="control-label">会員ステータス</td>
         <td>
           <div class="radio-inline">
-            <%= f.ragio_button :is_member, true %>
-            <%= f.label :is_member, "退会", {value
+            <%= f.radio_button :is_member, true %>
+            <%= f.label :is_member, "退会", {value: :true, style: "display: inline-block"} %>
+            <%> f.radio_button :is_member, flase %>
+            <%= f.label :is_member, "入会", {value: :true, style: "display: inline-block"} %>
           </div>
         </td>
         <td></td>
@@ -71,6 +73,7 @@
 
   <div>
     <%= f.submit "変更を保存", class: "btn btn-success" %>
+    <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary" %>
   </div>
 
 <% end %>
