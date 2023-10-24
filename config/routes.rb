@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items
     resources :customers
-    resources :orders, except: [:index] #今回の使用はトップページを注文一覧とするためindexを除外
+    resources :orders, except: [:index] do#今回の使用はトップページを注文一覧とするためindexを除外
+      resources :order_details, only: [:update]
+    end
     resources :genres
     root :to => "homes#top"
   end
