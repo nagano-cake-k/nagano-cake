@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
     @order = Order.new
   end
@@ -64,7 +66,6 @@ class Public::OrdersController < ApplicationController
       redirect_to orders_thanks_path
 
     end
-
   end
 
   private
