@@ -1,10 +1,10 @@
-<div>
-<h3>会員情報編集</h2>
+<div class="d-flex mx-4 mt-4 mb-2">
+<h3 class="bg-light px-4">会員情報編集</h2>
 </div>
 
 <%= form_with model: @customer, url: edit_customers_path  do |f| %>
-  <div>
-    <table>
+  <div class="row ml-5">
+    <table class="col-10 table table-borderless">
 
       <tr class="form-group">
         <td><label for="customer_name">氏名</label></td>
@@ -29,7 +29,7 @@
 
       <tr>
         <td><label for="customer_address">住所</label></td>
-        <td colspan="2"><%= f.text_field :address, id: "customer_address", value: @customer.address, class: "form-control address" %></td>
+        <td colspan="3"><%= f.text_field :address, id: "customer_address", value: @customer.address, class: "form-control address" %></td>
         <td></td>
       </tr>
 
@@ -46,15 +46,14 @@
         <td></td>
         <td></td>
       </tr>
+      
+      <tr>
+        <td></td>
+        <td><%= f.submit "編集内容を保存", class: "btn btn-success btn-sm px-4" %></td>
+        <td><%= link_to "退会する", quit_customers_path, method: :get, class: "btn btn-danger btn-sm px-4" %></td>
+        <td></td>
+      </tr>
 
     </table>
-  </div>
-
-  <div>
-    <%= f.submit "編集内容を保存", class: "btn btn-success" %>
-  </div>
-
-  <div>
-    <%= link_to "退会する", quit_customers_path, method: :get, class: "btn btn-danger" %>
   </div>
 <% end %>

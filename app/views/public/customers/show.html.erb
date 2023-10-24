@@ -1,52 +1,63 @@
-<div>
-  <h3>マイページ</h3>
+<div class="d-flex mx-4 mt-4 mb-2">
+  <h3 class="bg-light px-4">マイページ</h3>
 </div>
 
-<div>
-  <b>登録情報</b> <%= link_to "編集する", edit_customers_path, class: "btn btn-success" %>
+<div class="row mx-5">
+  <table class="col-3 table table-borderless">
+    <tr>
+      <th class="align-middle">登録情報</th>
+      <td><%= link_to "編集する", edit_customers_path, class: "btn btn-success btn-sm px-4" %></td>
+    </tr>
+  </table>
 </div>
 
-<div>
-  <table>
+<div class="row ml-5">
+  <table class="col-10 table table-bordered">
 
     <tr>
-      <td>氏名</td>
-      <td><%= @customer.last_name %><%= @customer.first_name %></td>
+      <td class="table-active", style="width:10%;">氏名</td>
+      <td style="width:30%;"><%= @customer.last_name %><%= @customer.first_name %></td>
     </tr>
 
     <tr>
-      <td>カナ</td>
+      <td class="table-active">カナ</td>
       <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
     </tr>
 
     <tr>
-      <td>郵便番号</td>
+      <td class="table-active">郵便番号</td>
       <td><%= @customer.post_code %></td>
     </tr>
 
     <tr>
-      <td>住所</td>
+      <td class="table-active">住所</td>
       <td><%= @customer.address %></td>
     </tr>
 
     <tr>
-      <td>電話番号</td>
+      <td class="table-active">電話番号</td>
       <td><%= @customer.telephone_number %></td>
     </tr>
 
     <tr>
-      <td>メールアドレス</td>
+      <td class="table-active">メールアドレス</td>
       <td><%= @customer.email %></td>
     </tr>
 
   </table>
 </div>
 
-<div>
-  <b>配送先</b> <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary" %>
-</div>
-
-<div>
-  <b>注文履歴</b> <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+<div class="row mx-5 my-4">
+    <table class="col-3 table table-borderless">
+      <tr>
+        <th class="align-middle">配送先</th>
+        <td><%= link_to "一覧を見る", addresses_path, class: "btn btn-primary btn-sm px-4" %></td>
+      </tr>
+  
+      <tr>
+        <th class="align-middle">注文履歴</th>
+        <td><%= link_to "一覧を見る", orders_path, class: "btn btn-primary btn-sm px-4" %></td>
+      </tr>
+    </table>
 </div>
 

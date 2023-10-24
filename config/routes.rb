@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'genres/edit'
 
 
-
   namespace :admin do
     resources :items
     resources :customers
