@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
     resources :addresses
     resources :items
+    get 'genres/:id' => 'items#genre', as: 'genre'
     get 'orders/thanks' => 'orders#thanks'
     post 'orders/confirm' => 'orders#confirm'
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
