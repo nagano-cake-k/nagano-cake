@@ -16,7 +16,7 @@ before_action :authenticate_admin!
       flash.now[notice] = "新規登録しました"
       redirect_to admin_genres_path
     else
-      flash.now[alert] = "新規登録に失敗しました"
+      flash.now[alert] = "ジャンルが重複していないか確認してください"
       @genres = Genre.all
       render :index
     end
