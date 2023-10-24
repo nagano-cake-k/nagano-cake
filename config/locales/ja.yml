@@ -5,15 +5,22 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
- 
+
       status:
         wait_payment: "入金待ち"
         confirm_payment: "入金確認"
         maiking: "製作中"
-        prepar_shipping: "発送準備中" 
+        prepar_shipping: "発送準備中"
         finish_prepar: "発送済み"
 
-    address_type:
-        self_address: "ご自身の住所"
-        registered_address: "登録済住所から選択"
-        new_address: "新しいお届け先"
+      address_type:
+          self_address: "ご自身の住所"
+          registered_address: "登録済住所から選択"
+          new_address: "新しいお届け先"
+
+    order_detail:
+        production_status:
+          unable_to_start: "着手不可"
+          waiting_for_production: "製作待ち"
+          in_production: "製作中"
+          production_completed: "製作完了"

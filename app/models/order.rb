@@ -5,11 +5,7 @@ class Order < ApplicationRecord
   
 
 
-  enum address_type: {
-    "ご自身の住所": 0,
-    "登録済み住所から選択": 1,
-    "新しいお届け先": 2
-  }
+  enum address_type: {"ご自身の住所": 0,"登録済み住所から選択": 1,"新しいお届け先": 2}
 
   enum payment_method: {"クレジットカード": 0, "銀行振込": 1}
 
