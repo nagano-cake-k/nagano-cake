@@ -5,13 +5,6 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def thanks
-  end
-
-  def index
-    @orders = Order.where(customer_id: current_customer.id).order(create_at: :desc)
-  end
-
   def confirm
     @cart_items = CartItem.where(customer_id: current_customer.id)
     @sub_total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
@@ -67,6 +60,19 @@ class Public::OrdersController < ApplicationController
 
     end
   end
+
+  def thanks
+  end
+
+  def index
+    @orders = Order.where(customer_id: current_customer.id).order(create_at: :desc)
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @postage = 800
+  end
+
 
   private
 
