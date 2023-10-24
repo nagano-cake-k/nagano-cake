@@ -1,6 +1,10 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    if params[:genre_id] == nil
+     @items = Item.all
+    else
+      @items = Item.where(genre_id: params[:genre_id])
+    end
   end
 
   def show
