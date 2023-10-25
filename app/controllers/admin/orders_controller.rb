@@ -14,15 +14,18 @@ before_action :authenticate_admin!
   end
 
   def update
-  @order = Order.find(params[:id])
-  @order_details = OrderDetail.where(order_id: params[:id])
-  if @order.update(order_params)
-     @order_details.update_all(maiking_status: 1) if @order.status == "payment_confirmation"
-  end
-  # redirect_to admin_root_url
-  redirect_to request.referer
+    @order = Order.find(params[:id])
+    @order_details = OrderDetail.where(order_id: params[:id])
+    @order.update(order_params)
+
+    if @order.status == "confirm_payment"
+       @order_details.update(production_status:'waiting_for_production')
+    end
+
+    redirect_to request.referer
 
   end
+
 
   private
 
