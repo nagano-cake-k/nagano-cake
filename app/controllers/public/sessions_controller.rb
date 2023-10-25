@@ -28,12 +28,18 @@ class Public::SessionsController < Devise::SessionsController
   ## アカウントを取得できなかった場合、このメソッドを終了する
   return if !@customer
   ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-  if @customer.valid_password?(params[:customer][:password])
-    ## 【処理内容3】
-  end
+    if @customer.valid_password?(params[:customer][:password])
+      if @customer.is_member == true #customerの入会ステータスを確認し、退会の場合ログインできないようにする
+        redirect_to new_customer_registration_path
+      else
+        return
+      end
+    end
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+
 end

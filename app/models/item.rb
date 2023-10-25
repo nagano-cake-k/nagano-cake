@@ -5,11 +5,10 @@ class Item < ApplicationRecord
   validates :genre_id, presence: true
   validates :cost, presence: true
   validates :explanation, presence: true
-  validates :cake_name, presence: true
-  validates :image, presence: true
+  validates :name, presence: true
+  # validates :image, presence: true
 
   has_one_attached :image
-
 
   def add_tax_cost
     (cost * 1.10).round
