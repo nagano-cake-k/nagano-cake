@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
     if resource_or_scope.is_a?(Admin)
       # adminユーザー
       admin_root_path
-      
+
     else
       # customerユーザー
-      root_path
+      mypage_customers_path
     end
   end
   
@@ -23,8 +23,14 @@ class ApplicationController < ActionController::Base
   #   root_path
   # end
 
-  def after_sign_out_path_for(resource)
-    about_path
+  def after_sign_out_path_for(resource_or_scope) # adminかそれ以外かでサインアウトした後の遷移先画面を分岐させる
+    if resource_or_scope == :admin
+      new_admin_session_path
+
+    else
+      about_path
+
+    end
   end
 
 end
