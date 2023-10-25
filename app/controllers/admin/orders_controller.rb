@@ -19,7 +19,8 @@ before_action :authenticate_admin!
   if @order.update(order_params)
      @order_details.update_all(maiking_status: 1) if @order.status == "payment_confirmation"
   end
-  redirect_to admin_root_url
+  # redirect_to admin_root_url
+  redirect_to request.referer
 
   end
 
