@@ -10,7 +10,6 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-
   def add_tax_cost
     (cost * 1.10).round
   end
