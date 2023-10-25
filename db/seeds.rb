@@ -168,7 +168,7 @@ end
       name: "test#{n + 1}",
       shipping_cost: "800",
       total_payment: "#{500 + (n * 500) +800}",
-      payment_method: "クレジットカード",
+      payment_method: "credit_card",
       status: rand(0..4)
     )
   end
