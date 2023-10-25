@@ -5,8 +5,8 @@ class Admin::OrderDetailsController < ApplicationController
      @order_details = @order.order_details.find(params[:id])
      @order_details.update(order_detail_params)
 
-    if params[:order_detail][:productin_status] == "in_production"
-      @order.update(status:"maiking")
+    if @order_details.production_status == "in_production"
+      @order.update(status:'maiking')
     end
 
     if is_all_order_details_production_status_completed(@order)
