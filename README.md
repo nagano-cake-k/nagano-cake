@@ -33,13 +33,13 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 ・Bootstrap
 
 ### 使用方法
-$ git clone git@github.com:nagano-cake-k/nagano-cake.git
-$ cd nagano-cake
-$ bundle install
-$ rails db:migrate
-$ rails db:seed
-$ yarn add @babel/plugin-proposal-private-methods @babel/plugin-proposal-private-property-in-object
-$ rails s
+$ git clone git@github.com:nagano-cake-k/nagano-cake.git  
+$ cd nagano-cake  
+$ bundle install  
+$ rails db:migrate  
+$ rails db:seed  
+$ yarn add @babel/plugin-proposal-private-methods @babel/plugin-proposal-private-property-in-object  
+$ rails s  
 
 
 ### 設計書
