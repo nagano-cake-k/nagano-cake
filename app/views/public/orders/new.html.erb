@@ -1,7 +1,7 @@
-
-<div class="order_input">
-
-  <h3 class="title">注文情報入力</h2>
+<div class="container p-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>注文情報入力</h2>
 
   <%= form_with model: @order, url:orders_confirm_path, method: :post do |f| %>
 
@@ -65,9 +65,8 @@
 
   </div>
   <% end %>
-
-
+    </div>
+  </div>
 </div>
-
 
 
