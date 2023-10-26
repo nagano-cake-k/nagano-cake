@@ -13,11 +13,13 @@
     <%= javascript_pack_tag 'customer_homes', 'data-turbolinks-track': 'reload' %>
   </head>
 
-   <div class="navbar-fixed-top header">
+  <body>
+
+   <div class="navbar-fixed-top">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <div class="navbar-brand p-3 nagano"><%= link_to "Nagano Cake", root_path %></div>
+          <div class="navbar-brand p-3 sign"><%= link_to "Nagano Cake", root_path %></div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -76,7 +78,6 @@
       </nav>
     </header>
    </div>
-   <body class="body">
      <% flash.each do |message_type, message| %>
       <div class="flash-message <%= message_type %>"><%= message %></div>
      <% end %>
