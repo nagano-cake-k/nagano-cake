@@ -33,7 +33,7 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 ・Bootstrap
 
 ### 使用方法
-$ git clone git@github.com:fabulous-202307/nagano-cake.git
+$ git clone git@github.com:nagano-cake-k/nagano-cake.git
 $ cd nagano-cake
 $ bundle install
 $ rails db:migrate
@@ -43,8 +43,6 @@ $ rails s
 
 
 ### 設計書
-
-
 
 ![roomK＿ゲームフリーク＿ER図（改定） (1)](https://github.com/nagano-cake-k/nagano-cake/assets/141293221/d4d9cfab-0ff5-47aa-97e9-960d5f3025cf)
 [チームK_ゲームフリーク_アプリケーション詳細設計書_回答用  - routes.pdf](https://github.com/nagano-cake-k/nagano-cake/files/13174874/K_._._.-.routes.pdf)
