@@ -11,6 +11,7 @@ before_action :authenticate_admin!
     # @customer = Customer.find(params[:id])
     @order_details = @order.order_details
     @postage = 800
+    @subtotal = @order.total_payment - @postage
   end
 
   def update
