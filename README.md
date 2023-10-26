@@ -1,4 +1,5 @@
-
+# A first-level heading
+ながのCake　ECサイト
 ![スクショ](https://github.com/nagano-cake-k/nagano-cake/assets/141293221/0e57821e-5bca-4ecd-8860-cf825894716e)
 
 
