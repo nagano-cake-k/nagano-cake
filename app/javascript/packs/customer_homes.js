@@ -25,14 +25,12 @@ $(window).on('load', function () {
   });
 });
 
-// let images = [ 'url(aseets/images/cake.image/cake1.jpg)', 'url(aseets/images/cake.image/cake2.jpg)', 'url(aseets/images/cake.image/cake3.jpg)' ];  // ランダム表示させたい画像のパス
-// // // let images = [ 'url(<%= image_tag "cake1.jpg" %>)', 'url(<%= image_tag "cake2.jpg" %>)', 'url(<%= image_tag "cake3.jpg" %>)'];  // ランダム表示させたい画像のパス
-
-//     $(function(){
-//       let backgroundRandom = function(){
-//         let number = Math.floor(Math.random() * images.length); // 0~3の数値を算出 
-//         let selectedImg = images[number]; // 算出された数値を元に、1行目の配列から取り出す
-//         $('#randomImg').css('background-image',selectedImg); // cssにランダムに選ばれた画像を背景設定する
-//       };
-//       setInterval(backgroundRandom, 5000);  // 1000msごとにランダム切り替えを繰り返す
-//     });
+// $(function() {
+//   let i = 1;
+//   setInterval(function() {
+//     if(i > 23) i = 1;
+//     $("#randomImg").css("background-image","url('images/cake"+i+".jpg')");
+//     i++;
+//     }, 4000
+//   );
+// });

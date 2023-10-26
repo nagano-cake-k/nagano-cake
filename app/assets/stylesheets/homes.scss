@@ -8,8 +8,14 @@
   letter-spacing: 0.2em;
   word-break : break-all;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-  color: black;
+  // color: black;
   letter-spacing: 0.4rem;
+  font-family: 'Playfair Display', serif;
+  background-color: #99FFFF;
+  background: linear-gradient(180deg, #0072b4 0%, #7bc0be 72%, #afebea 100%);
+  background: -webkit-linear-gradient(-90deg, #0072b4 0%, #7bc0be 72%, #afebea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /*jsで生成されるspanタグ*/
@@ -122,6 +128,12 @@
  60% {opacity: 1;}
  80% {opacity: 0;}
 100% {opacity: 0; transform: scale(1.0);}
+}
+
+.thanks{
+  background-image: url("cake.image/cake22.jpg");
+  width: 100%;
+  height: 100%;
 }
 
 // #randomImg {
