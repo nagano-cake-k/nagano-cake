@@ -25,12 +25,12 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 ・Ruby  
 
 ### フレームワーク・ライブラリ
-・Ruby on Rails
-・devise
-・Kaminari
-・enum_help
-・jQuery
-・Bootstrap
+・Ruby on Rails  
+・devise  
+・Kaminari  
+・enum_help  
+・jQuery  
+・Bootstrap  
 
 ### 使用方法
 $ git clone git@github.com:nagano-cake-k/nagano-cake.git  
