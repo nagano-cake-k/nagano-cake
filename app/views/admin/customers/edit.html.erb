@@ -1,79 +1,88 @@
-<div>
-<h3><%= (@customer.last_name + @customer.first_name) %>さんの会員情報編集</h2>
+<div class="container py-5">
+  <p class="<%= flash[:color] %>"><%= flash[:notice] %></p>
+  <div class="row mt-2 mb-3 offset-1 text-center">
+    <h3 class="px-4 title-background"><%= (@customer.last_name + @customer.first_name) %>さんの会員情報編集</h3>
+  </div>
+
+  <%= form_with model: @customer, url: admin_customer_path do |f| %>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class="table">
+
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><label for="customer_name">氏名</label></td>
+          <td><%= f.text_field :last_name, id: "customer_name", value: @customer.last_name, class: "form-control last_name" %></td>
+          <td><%= f.text_field :first_name, id: "customer_name", value: @customer.first_name, class: "form-control first_name" %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><label for="customer_name_kana">フリガナ</label></td>
+          <td><%= f.text_field :last_name_kana, id: "customer_name_kana", value: @customer.last_name_kana, class: "form-control last_name_kana" %></td>
+          <td><%= f.text_field :first_name_kana, id: "customer_name_kana", value: @customer.first_name_kana, class: "form-control first_name_kana" %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><label for="customer_post_code">郵便番号</label></td>
+          <td><%= f.text_field :post_code, id: "customer_post_code", value: @customer.post_code, class: "form-control post_code" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><label for="customer_address">住所</label></td>
+          <td colspan="2"><%= f.text_field :address, id: "customer_address", value: @customer.address, class: "form-control address" %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><label for="customer_telephone_number">電話番号</label></td>
+          <td><%= f.text_field :telephone_number, id: "customer_telephone_number", value: @customer.telephone_number, class: "form-control telephone_number" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><label for="customer_email">メールアドレス</label></td>
+          <td><%= f.text_field :email, id: "customer_email", value: @customer.email, class: "form-control email" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr class="form-group">
+          <td class="control-label">会員ステータス</td>
+          <td>
+            <div class="radio-inline">
+              <%= f.radio_button :is_member, false %>
+              <%= f.label :is_member, "入会", {value: :true, style: "display: inline-block"} %>
+              <%= f.radio_button :is_member, true %>
+              <%= f.label :is_member, "退会", {value: :true, style: "display: inline-block"} %>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3 offset-2">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+    </div>
+    <div class="col-3 offset-2">
+      <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <% end %>
 </div>
-
-<%= form_with model: @customer, url: admin_customer_path do |f| %>
-  <div>
-    <table>
-
-      <tr>
-        <td>会員ID</td>
-        <td><%= @customer.id %></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_name">氏名</label></td>
-        <td><%= f.text_field :last_name, id: "customer_name", value: @customer.last_name, class: "form-control last_name" %></td>
-        <td><%= f.text_field :first_name, id: "customer_name", value: @customer.first_name, class: "form-control first_name" %></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_name_kana">フリガナ</label></td>
-        <td><%= f.text_field :last_name_kana, id: "customer_name_kana", value: @customer.last_name_kana, class: "form-control last_name_kana" %></td>
-        <td><%= f.text_field :first_name_kana, id: "customer_name_kana", value: @customer.first_name_kana, class: "form-control first_name_kana" %></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_post_code">郵便番号</label></td>
-        <td><%= f.text_field :post_code, id: "customer_post_code", value: @customer.post_code, class: "form-control post_code" %></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_address">住所</label></td>
-        <td colspan="2"><%= f.text_field :address, id: "customer_address", value: @customer.address, class: "form-control address" %></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_telephone_number">電話番号</label></td>
-        <td><%= f.text_field :telephone_number, id: "customer_telephone_number", value: @customer.telephone_number, class: "form-control telephone_number" %></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_email">メールアドレス</label></td>
-        <td><%= f.text_field :email, id: "customer_email", value: @customer.email, class: "form-control email" %></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr class="form-group">
-        <td class="control-label">会員ステータス</td>
-        <td>
-          <div class="radio-inline">
-            <%= f.radio_button :is_member, false %>
-            <%= f.label :is_member, "入会", {value: :true, style: "display: inline-block"} %>
-            <%= f.radio_button :is_member, true %>
-            <%= f.label :is_member, "退会", {value: :true, style: "display: inline-block"} %>
-          </div>
-        </td>
-        <td></td>
-        <td></td>
-      </tr>
-
-    </table>
-  </div>
-
-  <div>
-    <%= f.submit "変更を保存", class: "btn btn-success" %>
-    <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary" %>
-  </div>
-
-<% end %>
